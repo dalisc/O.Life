@@ -34,31 +34,21 @@ Released   : 20121026
                 <div id="menu">
                     <ul>
                         <li><a href="{% url 'homepage' %}">Homepage</a></li>
-                        <li><a href="{% url 'polls' %}">Polls</a></li>
-                        <li class="current_page_item"><a href="{% url 'events' %}">Discover Events</a></li>
+                        <li class="current_page_item"><a href="{% url 'polls' %}">Polls</a></li>
+                        <li><a href="{% url 'events' %}">Discover Events</a></li>
                         <li><a href="{% url 'movies' %}">Discover Movies</a></li>
                     </ul>
                 </div>
             </div>
             <div id="banner">
-                <div class="content"><img src="{% static 'images/events.png' %}" width="1000" height="400" alt="" /></div>
+                <div class="content"><img src="{% static 'images/img02.jpg' %}" width="1000" height="400" alt="" /></div>
             </div>
         </div>
         <!-- end #header -->
-        <div id="featured-content" class="list">
-            {% for event in event_list %}
-            <div id="column">
-                <h2>{{event.title}}</h2>
-                <p><img src="{% static 'images/event.jpg' %}" width="300" height="150" alt="" /></p>
-                <p id="description">{{event.description}}</p>
-                <p class="button"><a href="#">Discover</a></p>
-            </div>
-            {% endfor %}
-        </div>
         <div id="page">
             <div id="content">
                 <div class="post">
-                    <h2 class="title"><a href="#">Welcome to ColoreGiallo </a></h2>
+                    <h2 class="title"><a href="#">How the Recommender Works</a></h2>
                     <div class="entry">
                         <p>This is <strong>ColoreGiallo</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>.
                             This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give
@@ -68,7 +58,7 @@ Released   : 20121026
                 </div>
             </div>
             <!-- end #content -->
-            <div id="sidebar">
+            <!-- <div id="sidebar">
                 <ul>
                     <li>
                         <h2>Categories</h2>
@@ -82,7 +72,7 @@ Released   : 20121026
                         </ul>
                     </li>
                 </ul>
-            </div>
+            </div> -->
             <!-- end #sidebar -->
             <div style="clear: both;">&nbsp;</div>
         </div>
@@ -91,7 +81,7 @@ Released   : 20121026
     <div id="footer-content-wrapper">
         <div id="footer-content">
             <div id="fbox1">
-                <h2>Fusce ultrices fringilla</h2>
+                <h2>Team Members</h2>
                 <ul class="style1">
                     <li class="first"><a href="#">Maecenas luctus lectus at sapien</a></li>
                     <li><a href="#">Etiam rhoncus volutpat erat</a></li>
@@ -101,7 +91,7 @@ Released   : 20121026
                 </ul>
             </div>
             <div id="fbox2">
-                <h2>Nulla luctus eleifend</h2>
+                <h2>Tech Stack</h2>
                 <ul class="style1">
                     <li class="first"><a href="#">Maecenas luctus lectus at sapien</a></li>
                     <li><a href="#">Etiam rhoncus volutpat erat</a></li>
@@ -111,7 +101,7 @@ Released   : 20121026
                 </ul>
             </div>
             <div id="fbox3">
-                <h2>Maecenas luctus lectus</h2>
+                <h2>APIs</h2>
                 <ul class="style1">
                     <li class="first"><a href="#">Maecenas luctus lectus at sapien</a></li>
                     <li><a href="#">Etiam rhoncus volutpat erat</a></li>

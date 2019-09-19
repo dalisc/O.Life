@@ -28,3 +28,7 @@ def movies(request):
     }
 
     return render(request, 'movies.html', context=context)
+
+def polls(request):
+
+    return render(request, 'polls.html')

@@ -410,11 +410,11 @@ a:hover {}
     width: 1000px;
     margin: 0px auto;
     padding: 50px 0px;
-    color: #FFFFFF;
+    color: grey;
 }
 
 #footer-content h2 {
-    color: #FFFFFF;
+    color: grey;
 }
 
 #footer-content a {}
@@ -429,7 +429,7 @@ a:hover {}
     margin: 0px;
     padding: 0px 0px 20px 0px;
     font-size: 26px;
-    color: #FFFFFF;
+    color: grey;
 }
 
 #footer-content #fbox1 {
