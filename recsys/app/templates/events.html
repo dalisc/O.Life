@@ -40,29 +40,19 @@ Released   : 20121026
                 </div>
             </div>
             <div id="banner">
-                <div class="content"><img src="{% static 'images/img02.jpg' %}" width="1000" height="400" alt="" /></div>
+                <div class="content"><img src="{% static 'images/events.png' %}" width="1000" height="400" alt="" /></div>
             </div>
         </div>
         <!-- end #header -->
-        <div id="featured-content">
-            <div id="column1">
-                <h2>Maecenas luctus</h2>
-                <p><img src="{% static 'images/img06.jpg' %}" width="300" height="150" alt="" /></p>
-                <p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-                <p class="button"><a href="#">Read More</a></p>
+        <div id="featured-content" class="list">
+            {% for event in event_list %}
+            <div id="column">
+                <h2>{{event.title}}</h2>
+                <p><img src="{% static 'images/event.jpg' %}" width="300" height="150" alt="" /></p>
+                <p id="description">{{event.description}}</p>
+                <p class="button"><a href="#">Discover</a></p>
             </div>
-            <div id="column2">
-                <h2>Fusce fringilla</h2>
-                <p><img src="{% static 'images/img07.jpg' %}" width="300" height="150" alt="" /></p>
-                <p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-                <p class="button"><a href="#">Read More</a></p>
-            </div>
-            <div id="column3">
-                <h2>Praesent mattis</h2>
-                <p><img src="{% static 'images/img08.jpg' %}" width="300" height="150" alt="" /></p>
-                <p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-                <p class="button"><a href="#">Read More</a></p>
-            </div>
+            {% endfor %}
         </div>
         <div id="page">
             <div id="content">

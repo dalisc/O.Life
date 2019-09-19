@@ -34,35 +34,25 @@ Released   : 20121026
                 <div id="menu">
                     <ul>
                         <li><a href="{% url 'homepage' %}">Homepage</a></li>
-                        <li class="current_page_item"><a href="{% url 'events' %}">Discover Events</a></li>
-                        <li><a href="{% url 'movies' %}">Discover Movies</a></li>
+                        <li><a href="{% url 'events' %}">Discover Events</a></li>
+                        <li class="current_page_item"><a href="{% url 'movies' %}">Discover Movies</a></li>
                     </ul>
                 </div>
             </div>
             <div id="banner">
-                <div class="content"><img src="{% static 'images/img02.jpg' %}" width="1000" height="400" alt="" /></div>
+                <div class="content"><img src="{% static 'images/movies.png' %}" width="1000" height="400" alt="" /></div>
             </div>
         </div>
         <!-- end #header -->
-        <div id="featured-content">
-            <div id="column1">
-                <h2>Maecenas luctus</h2>
-                <p><img src="{% static 'images/img06.jpg' %}" width="300" height="150" alt="" /></p>
-                <p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-                <p class="button"><a href="#">Read More</a></p>
+        <div id="featured-content" class="list">
+            {% for movie in movie_list %}
+            <div id="column">
+                <h2>{{movie.title}}</h2>
+                <p><img src="{% static 'images/movie.jpg' %}" width="300" height="150" alt="" /></p>
+                <p id="description">{{movie.synopsis}}</p>
+                <p class="button"><a href="#">Discover</a></p>
             </div>
-            <div id="column2">
-                <h2>Fusce fringilla</h2>
-                <p><img src="{% static 'images/img07.jpg' %}" width="300" height="150" alt="" /></p>
-                <p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-                <p class="button"><a href="#">Read More</a></p>
-            </div>
-            <div id="column3">
-                <h2>Praesent mattis</h2>
-                <p><img src="{% static 'images/img08.jpg' %}" width="300" height="150" alt="" /></p>
-                <p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-                <p class="button"><a href="#">Read More</a></p>
-            </div>
+            {% endfor %}
         </div>
         <div id="page">
             <div id="content">
