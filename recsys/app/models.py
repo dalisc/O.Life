@@ -28,9 +28,9 @@ class User(AbstractUser):
 class OLifer(models.Model):
     identifier = models.CharField(max_length=40, unique=True)
     cluster = models.ForeignKey('UserCluster', on_delete=models.SET_NULL, blank=True, null=True)
-    saved_movies = models.ManyToManyField('Movie')
-    saved_events = models.ManyToManyField('Event')
-    answers = models.ManyToManyField('Answer')
+    saved_movies = models.ManyToManyField('Movie', blank=True, null=True)
+    saved_events = models.ManyToManyField('Event', blank=True, null=True)
+    answers = models.ManyToManyField('Answer', blank=True, null=True)
 
     def __str__(self):
         return self.identifier

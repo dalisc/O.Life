@@ -31,7 +31,7 @@ class UserAdmin(BaseUserAdmin):
 # admin.site.register(Tag)
 admin.site.register(Movie)
 admin.site.register(Event)
-admin.site.register(UserCluster)
+# admin.site.register(UserCluster)
 # admin.site.register(Genre)
 admin.site.register(OLifer)
 # admin.site.register(Answer)
