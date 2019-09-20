@@ -6,68 +6,69 @@ import requests
 import json
 
 
-def getMovieId(movieName, year):
-    url = "https://imdb8.p.rapidapi.com/title/find"
+# def getMovieId(movieName, year):
+#     url = "https://imdb8.p.rapidapi.com/title/find"
 
-    querystring = {"q": movieName}
+#     querystring = {"q": movieName}
 
-    headers = {
-        'x-rapidapi-host': "imdb8.p.rapidapi.com",
-        'x-rapidapi-key': "8d83ebf72cmshe58465d5ac91e85p13ec4cjsnc46687bd8d29"
-    }
+#     headers = {
+#         'x-rapidapi-host': "imdb8.p.rapidapi.com",
+#         'x-rapidapi-key': "8d83ebf72cmshe58465d5ac91e85p13ec4cjsnc46687bd8d29"
+#     }
 
-    response = requests.request(
-        "GET", url, headers=headers, params=querystring)
-    response_json = json.loads(response.text)
-    results_json = response_json['results']
+#     response = requests.request(
+#         "GET", url, headers=headers, params=querystring)
+#     response_json = json.loads(response.text)
+#     results_json = response_json['results']
 
-    for movie in results_json:
-        if (movie['year'] == year):
-            first_result_json = movie['id'][7:16]
-            return first_result_json
-            break
+#     for movie in results_json:
+#         if (movie['year'] == year):
+#             first_result_json = movie['id'][7:16]
+#             movieIsInAPI = True
+#             return first_result_json
+#             break
 
-# Generate list of similar movies based on movie id
-
-
-def getSimilarMovies(movieId):
-    url = "https://imdb8.p.rapidapi.com/title/get-more-like-this"
-
-    querystring = {"currentCountry": "US",
-                   "purchaseCountry": "US", "tconst": movieId}
-
-    headers = {
-        'x-rapidapi-host': "imdb8.p.rapidapi.com",
-        'x-rapidapi-key': "26ce662040mshfefb6c3559490dcp1886cajsn1c5c8dea94d2"
-    }
-
-    response = requests.request(
-        "GET", url, headers=headers, params=querystring)
-    response_json = json.loads(response.text)
-
-    movies = []
-    for movie in response_json:
-        movies.append(getDetails(movie[7:16]))
-
-    return movies
+# # Generate list of similar movies based on movie id
 
 
-def getDetails(movieId):
-    url = "https://imdb8.p.rapidapi.com/title/get-details"
+# def getSimilarMovies(movieId):
+#     url = "https://imdb8.p.rapidapi.com/title/get-more-like-this"
 
-    querystring = {"tconst": movieId}
+#     querystring = {"currentCountry": "US",
+#                    "purchaseCountry": "US", "tconst": movieId}
 
-    headers = {
-        'x-rapidapi-host': "imdb8.p.rapidapi.com",
-        'x-rapidapi-key': "26ce662040mshfefb6c3559490dcp1886cajsn1c5c8dea94d2"
-    }
+#     headers = {
+#         'x-rapidapi-host': "imdb8.p.rapidapi.com",
+#         'x-rapidapi-key': "8d83ebf72cmshe58465d5ac91e85p13ec4cjsnc46687bd8d29"
+#     }
 
-    response = requests.request(
-        "GET", url, headers=headers, params=querystring)
-    response_json = json.loads(response.text)
-    movieTitle = response_json['title']
-    movieYear = response_json['year']
-    return (movieTitle, movieYear)
+#     response = requests.request(
+#         "GET", url, headers=headers, params=querystring)
+#     response_json = json.loads(response.text)
+
+#     movies = []
+#     for movie in response_json:
+#         movies.append(getDetails(movie[7:16]))
+
+#     return movies
+
+
+# def getDetails(movieId):
+#     url = "https://imdb8.p.rapidapi.com/title/get-details"
+
+#     querystring = {"tconst": movieId}
+
+#     headers = {
+#         'x-rapidapi-host': "imdb8.p.rapidapi.com",
+#         'x-rapidapi-key': "8d83ebf72cmshe58465d5ac91e85p13ec4cjsnc46687bd8d29"
+#     }
+
+#     response = requests.request(
+#         "GET", url, headers=headers, params=querystring)
+#     response_json = json.loads(response.text)
+#     movieTitle = response_json['title']
+#     movieYear = response_json['year']
+#     return (movieTitle, movieYear)
 
 # ################################################################################
 
@@ -83,7 +84,7 @@ def textSimilarityAPI(input1, input2):
     querystring = {"text1": input1, "text2": input2}
     headers = {
         'x-rapidapi-host': "twinword-twinword-bundle-v1.p.rapidapi.com",
-        'x-rapidapi-key': "26ce662040mshfefb6c3559490dcp1886cajsn1c5c8dea94d2"
+        'x-rapidapi-key': "8d83ebf72cmshe58465d5ac91e85p13ec4cjsnc46687bd8d29"
     }
 
     response = requests.request(
@@ -98,10 +99,10 @@ def lemmatizerAPI(input):
     url = "https://twinword-twinword-bundle-v1.p.rapidapi.com/lemma_extract/"
 
     querystring = {"text": input}
-
+    print(input)
     headers = {
         'x-rapidapi-host': "twinword-twinword-bundle-v1.p.rapidapi.com",
-        'x-rapidapi-key': "26ce662040mshfefb6c3559490dcp1886cajsn1c5c8dea94d2"
+        'x-rapidapi-key': "8d83ebf72cmshe58465d5ac91e85p13ec4cjsnc46687bd8d29"
     }
 
     response = requests.request(
@@ -162,7 +163,7 @@ def sentimentAnalysisAPI(input1, input2):
 
     headers = {
         'x-rapidapi-host': "twinword-twinword-bundle-v1.p.rapidapi.com",
-        'x-rapidapi-key': "26ce662040mshfefb6c3559490dcp1886cajsn1c5c8dea94d2"
+        'x-rapidapi-key': "8d83ebf72cmshe58465d5ac91e85p13ec4cjsnc46687bd8d29"
     }
 
     input1Response = requests.request(
@@ -175,7 +176,7 @@ def sentimentAnalysisAPI(input1, input2):
 
     headers = {
         'x-rapidapi-host': "twinword-twinword-bundle-v1.p.rapidapi.com",
-        'x-rapidapi-key': "26ce662040mshfefb6c3559490dcp1886cajsn1c5c8dea94d2"
+        'x-rapidapi-key': "8d83ebf72cmshe58465d5ac91e85p13ec4cjsnc46687bd8d29"
     }
 
     input2Response = requests.request(
@@ -192,27 +193,68 @@ def sentimentAnalysisAPI(input1, input2):
 # Compare Saved Event and Festival and return similarity index
 
 
-def compareEvent(savedEventJson, incomingEventJson):
+def compareMovie(incomingMovieTitle, incomingMovieDescription, savedMovie):
     # Step 1: Get the similarity index using the Text Similarity API
-    print(incomingEventJson)
 
-    incomingEventTitle = incomingEventJson['title']
-    incomingEventDescription = incomingEventJson['description']
+    savedMovieDescription = savedMovie.synopsis
 
-    savedEventDescription = savedEventJson['description']
-    savedEventTitle = savedEventJson['title']
-
-    textSIApi = textSimilarityAPI(savedEventOverview, incomingEventOverview)
+    savedMovieTitle = savedMovie.title
+    
+    textSIApi = textSimilarityAPI(savedMovieDescription, incomingMovieDescription)
 
     # Step 2
 
-    savedEventRootWords = lemmatizerAPI(savedEventTitle)
-    incomingEventRootWords = lemmatizerAPI(incomingEventTitle)
+    savedMovieRootWords = lemmatizerAPI(savedMovieDescription)
+    incomingMovieRootWords = lemmatizerAPI(incomingMovieDescription)
+
+    # Check if both have the same root words and these common root words do
+    # not include 'Singapore'
+
+    # Step 3: For the title of the Movie, find the root words
+    # and check whether root of T1 occur in T2
+    # If common proper nouns do sentiment analysis
+
+
+    # Step 3: Where the magic happens
+    if (sentimentAnalysisAPI(savedMovieDescription, incomingMovieDescription)):
+        savedMovieAssociatedWords = wordAssociationAPI(savedMovieRootWords)
+        incomingMovieAssociatedWords = wordAssociationAPI(
+            incomingMovieRootWords)
+
+        commonalities = set(savedMovieAssociatedWords) - \
+            (set(savedMovieAssociatedWords) - set(incomingMovieAssociatedWords))
+        noCommonalities = len(commonalities)
+        combinedAssociatedWords = savedMovieAssociatedWords + incomingMovieAssociatedWords
+        noUniqueWords = len(combinedAssociatedWords) - noCommonalities
+        siForAssociatedWords = noCommonalities / noUniqueWords
+
+        textSIApi = textSIApi * (1 + siForAssociatedWords)
+
+    return textSIApi
+
+def compareEvent(incomingEventTitle, incomingEventDescription, savedEvent):
+    # Step 1: Get the similarity index using the Text Similarity API
+
+    savedEventDescription = savedEvent.description
+    savedEventTitle = savedEvent.title
+
+    # incomingEventTitle = getattr(incomingEvent, 'title')
+    # incomingEventDescription = getatrr(incomingEvent, 'description')
+
+    # savedEventDescription = getatrr(savedEvent, 'description')
+    # savedEventTitle = getattr(savedEvent, 'title')
+    
+    textSIApi = textSimilarityAPI(savedEventDescription, incomingEventDescription)
+
+    # Step 2
+
+    savedEventRootWords = lemmatizerAPI(savedEventDescription)
+    incomingEventRootWords = lemmatizerAPI(incomingEventDescription)
 
     savedEventProperNouns = findProperNouns(
-        savedEventTitle, savedEventRootWords)
+        savedEventDescription, savedEventRootWords)
     incomingEventProperNouns = findProperNouns(
-        festivalTitle, incomingEventRootWords)
+        incomingEventDescription, incomingEventRootWords)
 
     # Check if both have the same root words and these common root words do
     # not include 'Singapore'
@@ -228,7 +270,7 @@ def compareEvent(savedEventJson, incomingEventJson):
             commonProperNouns.append(pNoun)
 
     # Step 3: Where the magic happens
-    if (sentimentAnalysisAPI(savedEventOverview, incomingEventOverview)):
+    if (sentimentAnalysisAPI(savedEventDescription, incomingEventDescription)):
         if(len(commonProperNouns) > 0):
             noUniqueProperNouns = len(
                 savedEventProperNouns + incomingEventProperNouns) - len(commonProperNouns)
@@ -236,7 +278,7 @@ def compareEvent(savedEventJson, incomingEventJson):
             textSIApi = textSIApi * (1 + siForProperNouns)
 
         savedEventAssociatedWords = wordAssociationAPI(savedEventRootWords)
-        incomingEventEventAssociatedWords = wordAssociationAPI(
+        incomingEventAssociatedWords = wordAssociationAPI(
             incomingEventRootWords)
 
         commonalities = set(savedEventAssociatedWords) - \
@@ -249,3 +291,39 @@ def compareEvent(savedEventJson, incomingEventJson):
         textSIApi = textSIApi * (1 + siForAssociatedWords)
 
     return textSIApi
+
+def compareToSavedEvents(incomingEventTitle, incomingEventDescription, savedEventList):
+
+    indexList = []
+
+    for savedEvent in savedEventList:
+        indexList.append(compareEvent(incomingEventTitle, incomingEventDescription, savedEvent))
+
+    return max(indexList)
+
+def compareToSavedMovies(incomingMovieTitle, incomingMovieDescription, savedMovieList):
+
+    indexList = []
+
+    for savedMovie in savedMovieList:
+        indexList.append(compareMovie(incomingMovieTitle, incomingMovieDescription, savedMovie))
+
+    return max(indexList)
+
+# def recommendedMovieScore(incomingMovieTitle, incomingMovieYear, savedMoviesList):
+
+#     shouldRecommend = False
+#     movieId = getMovieId(incomingMovieTitle, incomingMovieYear)
+
+#     simMovieIdList = getSimilarMovies(movieId)
+    
+#     for savedMovie in savedMoviesList:
+#         savedMovieId = getMovieId(savedMovie.title, savedMovie.year)
+#         if savedMovieId in simMovieIdList:
+#             shouldRecommend = True
+#             break
+    
+#     if shouldRecommend:
+#         return 1
+#     else:
+#         return 0

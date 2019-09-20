@@ -30,11 +30,11 @@ Released   : 20121026
             <div id="header" class="container">
                 <div id="logo">
                     <h1><a href="{% url 'homepage' %}">O.Life</a></h1>
+                    <a>Team Pokkamon</a>
                 </div>
                 <div id="menu">
                     <ul>
                         <li><a href="{% url 'homepage' %}">Homepage</a></li>
-                        <li><a href="{% url 'polls' %}">Polls</a></li>
                         <li><a href="{% url 'events' %}">Discover Events</a></li>
                         <li class="current_page_item"><a href="{% url 'movies' %}">Discover Movies</a></li>
                     </ul>
@@ -58,12 +58,16 @@ Released   : 20121026
         <div id="page">
             <div id="content">
                 <div class="post">
-                    <h2 class="title"><a href="#">Welcome to ColoreGiallo </a></h2>
+                    <h2 class="title"><a href="#">Add a New Movie </a></h2>
                     <div class="entry">
-                        <p>This is <strong>ColoreGiallo</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>.
-                            This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give
-                            us credit for it. Have fun :) </p>
+                        <p>Add a new event and see how it ranks with current movies! The new movie added will be compared to the current list of movies bookmarked by the users. Ranking is based on how similar the added movie is the the bookmarked movies</p>
                         <p class="links"><a href="{% url 'add_movie' %}" class="more">Add Movie</a>
+                    </div>
+                </div>
+                <div class="post">
+                    <h2 class="title"><a href="#">Current Bookmarks </a></h2>
+                    <div class="entry">
+                        {% for movie in saved_movies %} <br/> {{ movie.title }}{% endfor %}
                     </div>
                 </div>
             </div>
@@ -71,14 +75,15 @@ Released   : 20121026
             <div id="sidebar">
                 <ul>
                     <li>
-                        <h2>Categories</h2>
+                        <h2>What happens to the movie added?</h2>
                         <ul>
-                            <li><a href="#">Aliquam libero</a></li>
-                            <li><a href="#">Consectetuer adipiscing elit</a></li>
-                            <li><a href="#">Metus aliquam pellentesque</a></li>
-                            <li><a href="#">Suspendisse iaculis mauris</a></li>
-                            <li><a href="#">Urnanet non molestie semper</a></li>
-                            <li><a href="#">Proin gravida orci porttitor</a></li>
+                            <li>Semantic analysis will be performed on the description.</li>
+                            <li>Text analsys will be performed on the description.</li>
+                            <li>Root word analysis will be performed on the description.</li>
+                            <li>Movie will be compared to bookmarked movies.</li>
+                            <li>Movie will be given a similarity index to each bookmarked movie.</li>
+                            <li>The highest similarity index will be the final similarity index.</li>
+                            <li>Movies appear in the horizontal scrolling pane in descending order of similarity index.</li>
                         </ul>
                     </li>
                 </ul>
@@ -91,33 +96,32 @@ Released   : 20121026
     <div id="footer-content-wrapper">
         <div id="footer-content">
             <div id="fbox1">
-                <h2>Fusce ultrices fringilla</h2>
+                <h2>Team Members</h2>
                 <ul class="style1">
-                    <li class="first"><a href="#">Maecenas luctus lectus at sapien</a></li>
-                    <li><a href="#">Etiam rhoncus volutpat erat</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
-                    <li><a href="#">Mauris vulputate dolor sit amet nibh</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
+                    <li class="first"><a href="https://github.com/arjavibahety/">Bahety Arjavi</a></li>
+                    <li><a href="https://github.com/heze8/">Caleb Goh</a></li>
+                    <li><a href="https://github.com/dalisc/">Chan Dalis</a></li>
+                    <li><a href="https://github.com/johannagwan/">Johanna</a></li>
+                    <li><a href="https://github.com/longluqian/">Long Luqian</a></li>
                 </ul>
             </div>
             <div id="fbox2">
-                <h2>Nulla luctus eleifend</h2>
+                <h2>Tech Stack</h2>
                 <ul class="style1">
-                    <li class="first"><a href="#">Maecenas luctus lectus at sapien</a></li>
-                    <li><a href="#">Etiam rhoncus volutpat erat</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
-                    <li><a href="#">Mauris vulputate dolor sit amet nibh</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
+                    <li class="first"><a href="https://www.djangoproject.com/">Django</a></li>
+                    <li><a href="https://pandas.pydata.org/">Pandas</a></li>
+                    <li><a href="https://scikit-learn.org/stable/">SciKitLearn</a></li>
+                    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+                    <li><a href="https://english.api.rakuten.net/">Rakuten API</a></li>
                 </ul>
             </div>
             <div id="fbox3">
-                <h2>Maecenas luctus lectus</h2>
+                <h2>APIs</h2>
                 <ul class="style1">
-                    <li class="first"><a href="#">Maecenas luctus lectus at sapien</a></li>
-                    <li><a href="#">Etiam rhoncus volutpat erat</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
-                    <li><a href="#">Mauris vulputate dolor sit amet nibh</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
+                    <li class="first"><a href="https://rapidapi.com/twinword/api/text-similarity">Text similarity</a></li>
+                    <li><a href="https://english.api.rakuten.net/twinword/api/lemmatizer">Lemmatizer</a></li>
+                    <li><a href="https://english.api.rakuten.net/twinword/api/word-associations">Word associations</a></li>
+                    <li><a href="https://english.api.rakuten.net/twinword/api/sentiment-analysis">Semantic</a></li>
                 </ul>
             </div>
         </div>

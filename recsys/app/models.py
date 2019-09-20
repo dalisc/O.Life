@@ -81,8 +81,8 @@ class Tag(models.Model):
         return '%s' % (self.tag_name)
 
 class Movie(models.Model):
-    # user_account = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=100, null=True, blank=True)
+    year = models.IntegerField(default=2019)
     genre = models.ManyToManyField('Genre')
     synopsis = models.TextField(null=True, blank=True)
     recommendation_index = models.DecimalField(max_digits=4, default=0, decimal_places=3)

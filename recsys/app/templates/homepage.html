@@ -30,18 +30,18 @@ Released   : 20121026
             <div id="header" class="container">
                 <div id="logo">
                     <h1><a href="{% url 'homepage' %}">O.Life</a></h1>
+                    <a>Team Pokkamon</a>
                 </div>
                 <div id="menu">
                     <ul>
                         <li class="current_page_item"><a href="{% url 'homepage' %}">Homepage</a></li>
-                        <li><a href="{% url 'polls' %}">Polls</a></li>
                         <li><a href="{% url 'events' %}">Discover Events</a></li>
                         <li><a href="{% url 'movies' %}">Discover Movies</a></li>
                     </ul>
                 </div>
             </div>
             <div id="banner">
-                <div class="content"><img src="{% static 'images/img02.jpg' %}" width="1000" height="400" alt="" /></div>
+                <div class="content"><img src="{% static 'images/homebanner.png' %}" width="1000" height="400" alt="" /></div>
             </div>
         </div>
         <!-- end #header -->
@@ -50,30 +50,30 @@ Released   : 20121026
                 <div class="post">
                     <h2 class="title"><a href="#">How the Recommender Works</a></h2>
                     <div class="entry">
-                        {% for movie in movies %}
-                        <p>{{ index }}</p>
-                        <p>movie: {{ movie.0 }}</p>
-                        {% endfor %}
-                        <p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
+                        <p>This recommender engine uses collaborative filtering to profile similar users into clusters. Users in a cluster receive the same recommendations. Recommendations are in the form of which content appears first on a horizontal scrolling
+                            pane. We use text analysis to determine which events/movies should appear first to the user.
+                        </p>
+                        <p>Please view our slide deck for more details <a href="http://tiny.cc/olife">here</a>.</p>
                     </div>
                 </div>
             </div>
             <!-- end #content -->
-            <!-- <div id="sidebar">
+            <div id="sidebar">
                 <ul>
                     <li>
-                        <h2>Categories</h2>
+                        <h2>TRY IT OUT</h2>
                         <ul>
-                            <li><a href="#">Aliquam libero</a></li>
-                            <li><a href="#">Consectetuer adipiscing elit</a></li>
-                            <li><a href="#">Metus aliquam pellentesque</a></li>
-                            <li><a href="#">Suspendisse iaculis mauris</a></li>
-                            <li><a href="#">Urnanet non molestie semper</a></li>
-                            <li><a href="#">Proin gravida orci porttitor</a></li>
+                            <li>Click on Discover Events.</li>
+                            <li>Explore current events.</li>
+                            <li>Add a new event.</li>
+                            <li>See how it ranks with existing events.</li>
+                            <li>Do the same for Discover Movies</li>
                         </ul>
+                        <h4>Please be patient and wait for the new event/movie to register. The engine is slow due to many API calls.</h4>
+                        <h4>You may need to wait several minutes.</h4>
                     </li>
                 </ul>
-            </div> -->
+            </div>
             <!-- end #sidebar -->
             <div style="clear: both;">&nbsp;</div>
         </div>
@@ -84,31 +84,30 @@ Released   : 20121026
             <div id="fbox1">
                 <h2>Team Members</h2>
                 <ul class="style1">
-                    <li class="first"><a href="#">Maecenas luctus lectus at sapien</a></li>
-                    <li><a href="#">Etiam rhoncus volutpat erat</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
-                    <li><a href="#">Mauris vulputate dolor sit amet nibh</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
+                    <li class="first"><a href="https://github.com/arjavibahety/">Bahety Arjavi</a></li>
+                    <li><a href="https://github.com/heze8/">Caleb Goh</a></li>
+                    <li><a href="https://github.com/dalisc/">Chan Dalis</a></li>
+                    <li><a href="https://github.com/johannagwan/">Johanna</a></li>
+                    <li><a href="https://github.com/longluqian/">Long Luqian</a></li>
                 </ul>
             </div>
             <div id="fbox2">
                 <h2>Tech Stack</h2>
                 <ul class="style1">
-                    <li class="first"><a href="#">Maecenas luctus lectus at sapien</a></li>
-                    <li><a href="#">Etiam rhoncus volutpat erat</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
-                    <li><a href="#">Mauris vulputate dolor sit amet nibh</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
+                    <li class="first"><a href="https://www.djangoproject.com/">Django</a></li>
+                    <li><a href="https://pandas.pydata.org/">Pandas</a></li>
+                    <li><a href="https://scikit-learn.org/stable/">SciKitLearn</a></li>
+                    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+                    <li><a href="https://english.api.rakuten.net/">Rakuten API</a></li>
                 </ul>
             </div>
             <div id="fbox3">
                 <h2>APIs</h2>
                 <ul class="style1">
-                    <li class="first"><a href="#">Maecenas luctus lectus at sapien</a></li>
-                    <li><a href="#">Etiam rhoncus volutpat erat</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
-                    <li><a href="#">Mauris vulputate dolor sit amet nibh</a></li>
-                    <li><a href="#">Etiam posuere augue sit amet nisl</a></li>
+                    <li class="first"><a href="https://rapidapi.com/twinword/api/text-similarity">Text similarity</a></li>
+                    <li><a href="https://english.api.rakuten.net/twinword/api/lemmatizer">Lemmatizer</a></li>
+                    <li><a href="https://english.api.rakuten.net/twinword/api/word-associations">Word associations</a></li>
+                    <li><a href="https://english.api.rakuten.net/twinword/api/sentiment-analysis">Semantic</a></li>
                 </ul>
             </div>
         </div>
