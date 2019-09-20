@@ -3,11 +3,30 @@ from django.http import HttpResponse
 from app.models import Event, Movie
 from app.forms import EventCreationForm, MovieCreationForm
 from django.utils import timezone
+from app import apis
+from django.core import serializers
+from django.http.response import JsonResponse
 
 # Create your views here.
 
 def homepage(request):
-    return render(request, 'homepage.html')
+
+    movie_id = apis.getMovieId("maleficent", 2014)
+    movies = apis.getSimilarMovies(movie_id)
+
+    events = Event.objects.filter(date__gte=timezone.now()).order_by('-recommendation_index')
+    # eventsJson = JsonResponse(list(events.values()), safe=False)
+    
+    # serialized_object = serializers.serialize('json', events[0])
+    index = apis.compareEvent(events[0], events[1])
+
+    context = {
+        'movie_id': movie_id,
+        'movies': movies,
+        'index': index,
+    }
+
+    return render(request, 'homepage.html', context=context)
 
 def events(request):
 
@@ -60,3 +79,4 @@ def add_movie(request):
     else:
         form = MovieCreationForm()
     return render(request, 'add_movie.html', {'form': form})
+
