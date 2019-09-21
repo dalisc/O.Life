@@ -1,3 +1,8 @@
+![Image of O.Life](capture.jpg)
+
+# Prototype demo video
+https://youtu.be/AJri3LBhzWU
+
 # How to run the prototype 
 
 ### 1. Clone the repository
