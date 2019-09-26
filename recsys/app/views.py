@@ -14,8 +14,8 @@ def homepage(request):
 
 def events(request):
 
-    # events = Event.objects.filter(user_account=request.user).order_by('-recommendation_index')
-    events = Event.objects.filter(date__gte=timezone.now()).order_by('-recommendation_index')
+    events_to_date = Event.objects.filter(date__gte=timezone.now()).order_by('-recommendation_index')
+    events = Event.objects.order_by('-recommendation_index')
     saved_events = get_saved_events(request)
 
     context = {
@@ -27,8 +27,8 @@ def events(request):
 
 def movies(request):
 
-    # movies = Movie.objects.filter(user_account=request.user).order_by('-recommendation_index')
-    movies = Movie.objects.filter(showing_until__gte=timezone.now()).order_by('-recommendation_index')
+    movies_to_date = Movie.objects.filter(showing_until__gte=timezone.now()).order_by('-recommendation_index')
+    movies = Movie.objects.order_by('-recommendation_index')
     saved_movies = get_saved_movies(request)
     
     context = {
