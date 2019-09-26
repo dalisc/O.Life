@@ -26,7 +26,7 @@ def events(request):
     return render(request, 'events.html', context=context)
 
 def movies(request):
-
+    
     movies_to_date = Movie.objects.filter(showing_until__gte=timezone.now()).order_by('-recommendation_index')
     movies = Movie.objects.order_by('-recommendation_index')
     saved_movies = get_saved_movies(request)

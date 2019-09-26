@@ -48,7 +48,7 @@ Released   : 20121026
         <div id="featured-content" class="list">
             {% for movie in movie_list %}
             <div id="column">
-                <h2>{{movie.title}}</h2>
+                <h2>{{movie.title}} ({{movie.year}})</h2>
                 <p><img src="{% static 'images/movie.jpg' %}" width="300" height="150" alt="" /></p>
                 <p id="description">{{movie.synopsis}}</p>
                 <p class="button"><a href="#">Discover</a></p>

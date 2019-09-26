@@ -1,19 +1,19 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import User, Event, Movie
+from .models import Event, Movie
 import random
         
-class UserCreationForm(UserCreationForm):
+# class UserCreationForm(UserCreationForm):
 
-    class Meta(UserCreationForm):
-        model = User
-        fields = ('identifier',)
+#     class Meta(UserCreationForm):
+#         model = User
+#         fields = ('identifier',)
 
-class UserChangeForm(UserChangeForm):
+# class UserChangeForm(UserChangeForm):
 
-    class Meta:
-        model = User
-        fields = ('identifier', 'answers', 'saved_movies', 'saved_events')
+#     class Meta:
+#         model = User
+#         fields = ('identifier', 'answers', 'saved_movies', 'saved_events')
 
 class EventCreationForm(forms.ModelForm):
 

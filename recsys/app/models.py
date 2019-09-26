@@ -6,31 +6,31 @@ import datetime
 
 # Create your models here.
 
-class User(AbstractUser):
-    cluster = models.ForeignKey('UserCluster', on_delete=models.SET_NULL, blank=True, null=True)
-    answers = models.ManyToManyField('Answer')
-    saved_movies = models.ManyToManyField('Movie')
-    saved_events = models.ManyToManyField('Event')
-    identifier = models.CharField(max_length=40, unique=True)
+# class User(AbstractUser):
+#     cluster = models.ForeignKey('UserCluster', on_delete=models.SET_NULL, blank=True, null=True)
+#     answers = models.ManyToManyField('Answer')
+#     saved_movies = models.ManyToManyField('Movie')
+#     saved_events = models.ManyToManyField('Event')
+#     identifier = models.CharField(max_length=40, unique=True)
 
-    def __str__(self):
-        return self.identifier
+#     def __str__(self):
+#         return self.identifier
 
-    def get_answers(self):
-        return "\n".join([answer for answer in self.answers.all()])
+#     def get_answers(self):
+#         return "\n".join([answer for answer in self.answers.all()])
     
-    def get_movies(self):
-        return "\n".join([movie.text for movie in self.saved_movies.all()])
+#     def get_movies(self):
+#         return "\n".join([movie.text for movie in self.saved_movies.all()])
     
-    def get_events(self):
-        return "\n".join([event.text for event in self.saved_events.all()])
+#     def get_events(self):
+#         return "\n".join([event.text for event in self.saved_events.all()])
 
 class OLifer(models.Model):
     identifier = models.CharField(max_length=40, unique=True)
     cluster = models.ForeignKey('UserCluster', on_delete=models.SET_NULL, blank=True, null=True)
     saved_movies = models.ManyToManyField('Movie')
     saved_events = models.ManyToManyField('Event')
-    answers = models.ManyToManyField('Answer')
+    answers = models.ManyToManyField('Answer', null=True, blank=True)
 
     def __str__(self):
         return self.identifier

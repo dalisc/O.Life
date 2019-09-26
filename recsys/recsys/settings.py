@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'recsys.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'recsys3',
+        'NAME': 'recsys4',
         'USER': 'dalis',
         'PASSWORD': 'dalis',
         'HOST': 'localhost',
@@ -130,4 +130,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTH_USER_MODEL = "app.User" 
+# AUTH_USER_MODEL = "app.User" 
