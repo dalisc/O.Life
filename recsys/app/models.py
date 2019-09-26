@@ -30,14 +30,10 @@ class OLifer(models.Model):
     cluster = models.ForeignKey('UserCluster', on_delete=models.SET_NULL, blank=True, null=True)
     saved_movies = models.ManyToManyField('Movie')
     saved_events = models.ManyToManyField('Event')
-    answers = models.ManyToManyField('Answer', null=True, blank=True)
 
     def __str__(self):
         return self.identifier
 
-    def get_answers(self):
-        return "\n".join([answer for answer in self.answers.all()])
-    
     def get_movies(self):
         return "\n".join([movie.text for movie in self.saved_movies.all()])
     

@@ -26,7 +26,7 @@ def events(request):
     return render(request, 'events.html', context=context)
 
 def movies(request):
-    
+
     movies_to_date = Movie.objects.filter(showing_until__gte=timezone.now()).order_by('-recommendation_index')
     movies = Movie.objects.order_by('-recommendation_index')
     saved_movies = get_saved_movies(request)
@@ -50,7 +50,7 @@ def add_event(request):
         form = EventCreationForm(request.POST)
         if form.is_valid():
             event = form.save(commit=False)
-            index = apis.compareToSaved(event.title, event.description, get_saved_events(request))
+            index = apis.compareToSavedEvents(event.title, event.description, get_saved_events(request))
             event.recommendation_index = index
             event = event.save()
             return redirect('events')
