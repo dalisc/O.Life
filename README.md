@@ -1,12 +1,10 @@
 # This web app is now live!
-[http://dalisc.pythonanywhere.com/]
-
-![Image of O.Life](capture.png)
+http://dalisc.pythonanywhere.com/
 
 # Prototype demo video
 https://youtu.be/AJri3LBhzWU
 
-# How to run the prototype 
+# Cloning on your own device
 
 ### Pre-requisites
 * Java 11
