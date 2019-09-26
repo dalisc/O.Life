@@ -1,4 +1,7 @@
-![Image of O.Life](capture.jpg)
+# This web app is now live!
+[http://dalisc.pythonanywhere.com/]
+
+![Image of O.Life](capture.png)
 
 # Prototype demo video
 https://youtu.be/AJri3LBhzWU
