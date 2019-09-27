@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : ColoreGiallo 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20121026
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    {% load static %}
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>O.Life - Profiling</title>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css' />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header-wrapper">
+            <div id="header" class="container">
+                <div id="logo">
+                    <h1><a href="{% url 'homepage' %}">O.Life</a></h1>
+                    <a>Team Pokkamon</a>
+                </div>
+                <div id="menu">
+                    <ul>
+                        <li><a href="{% url 'homepage' %}">Homepage</a></li>
+                        <li class="current_page_item"><a href="{% url 'profiling' %}">Profiling</a></li>
+                        <li><a href="{% url 'events' %}">Discover Events</a></li>
+                        <li><a href="{% url 'movies' %}">Discover Movies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="banner">
+                <div class="content"><img src="{% static 'images/profiling.png' %}" width="1000" height="400" alt="" /></div>
+            </div>
+        </div>
+        <!-- end #header -->
+        <div id="page">
+            <div id="content">
+                <div class="post">
+                    <h2 class="title" id="summary">Summary of Approach</h2>
+                    <div class="entry">
+                        <p>Since the given dataset contains only the user’s numerical choices with no qualitative meaning behind each number, we use collaborative filtering to cluster the users based on their answers. </p>
+                        <p>Each cluster will then be treated as a single entity to get recommendations of events and movies that are similar to their combined bookmarked events and movies.</p>
+                        <p>The full working code as outlined below can be found <a href="https://colab.research.google.com/drive/1sFxVAXE9liFikaQeauSaNz8O7zPBNuuG">here.</a></p>
+                    </div>
+                    <h2 class="title" id="sample-set">Sample Set</h2>
+                    <div class="entry">
+                        <p>We analysed the dataset and collated the number of questions each user answered. Of a total of 7679 users, we found that 43 users answered at least 170 questions, out of a total 183 unique questions. We thus use these users as
+                            our sample as they have enough data for us to work with. </p>
+                        <p>We attempt to find a measure of similarity between every user so that we can profile them into clusters.</p>
+                    </div>
+                    <h2 class="title" id="similarity">Calculating Similarity</h2>
+                    <div class="entry">
+                        <p>The similarity index between two users, User A and User B is calculated as follows:</p>
+                        <p>similarity index = number of common answers / number of questions answered by either A or B</p>
+                        <p>With this algorithm, we were able to generate a similarity matrix, to be used in our clustering algorithm. A sample of the similarity matrix calculated is shown below:</p>
+                        <img src="{% static 'images/sim_matrix_sample.JPG' %}" width="500" height="auto" alt="" />
+                    </div>
+                    <h2 class="title" id="clustering">Spectral Clustering</h2>
+                    <div class="entry">
+                        <p>With SciKitLearn's libraries, the similarity matrix we generated was suffice to compute the clusters via spectral clustering.</p>
+                        <p>Clustering matrix obtained from the similarity matrix:</p>
+                        <p>[1 1 0 0 1 2 1 1 0 0 1 2 2 1 1 1 0 1 2 2 2 2 1 1 0 0 1 1 2 0 1 1 1 2 1 1 0 1 2 1 1 2 1]</p>
+                        <p>We manage to group the 43 users into 3 clusters using spectral clustering, where each number represents the user’s cluster number.</p>
+                    </div>
+                    <h2 class="title" id="next">What Next?</h2>
+                    <div class="entry">
+                        <p>Our work doesn't just end at profiling users into different clusters. Now we use that idea of profiling users to recommend events and movies to a a cluster as opposed to individuals. The reason for this is that it greatly reduces
+                            the needed computational resources</p>
+                        <p>This web app prototype simulates a cluster of users and their bookmarked events and movies. This app has already loaded some events and movies in a horizontal scrolling fashion, to mimick how the entries appear in the mobile app.</p>
+                        <p>Upon the addition of a new event/movie, that new entry will be compared against the bookmarks to see how similar they are to the cluster's interests. The entry will be assigned a recommendation index, which dictates the order of
+                            appearance of the entries in the horizontal list.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end #content -->
+            <div id="sidebar">
+                <ul>
+                    <li>
+                        <h2>Contents</h2>
+                        <ul>
+                            <li><a href="#summary">Summary of Content</a></li>
+                            <li><a href="#sample-set">Sample Set</a></li>
+                            <li><a href="#similarity">Calculating Similarity</a></li>
+                            <li><a href="#clustering">Spectral Clustering</a></li>
+                            <li><a href="#next">What Next?</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- end #sidebar -->
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+        <!-- end #page -->
+    </div>
+    <div id="footer-content-wrapper">
+        <div id="footer-content">
+            <div id="fbox1">
+                <h2>Team Members</h2>
+                <ul class="style1">
+                    <li class="first"><a href="https://github.com/arjavibahety/">Bahety Arjavi</a></li>
+                    <li><a href="https://github.com/heze8/">Caleb Goh</a></li>
+                    <li><a href="https://github.com/dalisc/">Chan Dalis</a></li>
+                    <li><a href="https://github.com/johannagwan/">Johanna</a></li>
+                    <li><a href="https://github.com/longluqian/">Long Luqian</a></li>
+                </ul>
+            </div>
+            <div id="fbox2">
+                <h2>Tech Stack</h2>
+                <ul class="style1">
+                    <li class="first"><a href="https://www.djangoproject.com/">Django</a></li>
+                    <li><a href="https://pandas.pydata.org/">Pandas</a></li>
+                    <li><a href="https://scikit-learn.org/stable/">SciKitLearn</a></li>
+                    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+                    <li><a href="https://english.api.rakuten.net/">Rakuten API</a></li>
+                </ul>
+            </div>
+            <div id="fbox3">
+                <h2>APIs</h2>
+                <ul class="style1">
+                    <li class="first"><a href="https://rapidapi.com/twinword/api/text-similarity">Text similarity</a></li>
+                    <li><a href="https://english.api.rakuten.net/twinword/api/lemmatizer">Lemmatizer</a></li>
+                    <li><a href="https://english.api.rakuten.net/twinword/api/word-associations">Word associations</a></li>
+                    <li><a href="https://english.api.rakuten.net/twinword/api/sentiment-analysis">Semantic</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p>&copy; Untitled. All rights reserved. Images by <a href="http://fotogrph.com/">Fotogrph</a>. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+    </div>
+    <!-- end #footer -->
+</body>
+
+</html>

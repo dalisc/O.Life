@@ -7,6 +7,6 @@ path('events/', views.events, name='events'),
 path('events/add', views.add_event, name='add_event'),
 path('movies/', views.movies, name='movies'),
 path('movies/add', views.add_movie, name='add_movie'),
-path('polls/', views.polls, name='polls'),
+path('profiling/', views.profiling, name='profiling'),
 
 ]

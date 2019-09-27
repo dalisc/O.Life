@@ -209,10 +209,14 @@ a:hover {}
     border: none;
 }
 
-#menu a:hover,
 #menu .current_page_item a {
     text-decoration: none;
     color: #FFFFFF;
+}
+
+#menu a:hover {
+    text-decoration: none;
+    color: grey;
 }
 
 #menu .current_page_item a {

@@ -38,9 +38,9 @@ def movies(request):
 
     return render(request, 'movies.html', context=context)
 
-def polls(request):
+def profiling(request):
 
-    return render(request, 'polls.html')
+    return render(request, 'profiling.html')
 
 def add_event(request):
 
