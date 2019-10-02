@@ -1,3 +1,8 @@
+# Pokkamon's Recommendation System
+
+## About the app
+This personalized recommendation engine was developed for a virtual hackathon organised by Circles.Life. It uses collaborative filtering to cluster similar users together and content-based filtering to recommend specific items to users in a cluster. We used various APIs to do semantic analysis on event and movie descriptions to see how closely they match users' existing tastes and preferences.
+
 # This web app is now live!
 http://dalisc.pythonanywhere.com/
 
