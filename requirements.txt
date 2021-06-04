@@ -3,7 +3,7 @@ astroid==2.1.0
 beautifulsoup4==4.5.3
 chardet==2.3.0
 colorama==0.4.1
-Django==2.2.1
+Django==2.2.21
 docx2txt==0.6
 EbookLib==0.15
 environ==1.0
